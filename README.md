@@ -3,7 +3,7 @@
 ### What is it?
 A simple tutorial on how to use Google Cloud Translate API.
 
-Check tutorial page at http://fernandatote.com/projects/translate and us these GitHub files to reproduce it.
+Check tutorial page at http://fernandatote.com/projects/translate and use these GitHub files to reproduce it.
 
 ### Technical Architecture
 
