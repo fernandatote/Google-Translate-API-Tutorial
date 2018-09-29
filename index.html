@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Google Translate Demo</title>
+
+    <style>
+      html, body {
+        height: 100%;
+        font-size: 16px !important;
+      }
+
+      #content {
+        margin-top: 80px;
+      }
+
+      #intro {
+        height: 100vh;
+      }
+
+      .topic {
+        padding-top: 60px;
+        min-height: 100vh;
+        height: auto;
+      }
+
+      .box {
+        margin: 1em 0;
+        padding: 1em;
+        border-radius: 10px;
+      }
+
+      #content img {
+        max-width: 100%;
+        width: 100%;
+      }
+
+      #api-features .box{
+        background-color: salmon;
+      }
+
+      #automl-features .box{
+        background-color: mediumseagreen;
+      }
+
+      #pricing .box{
+        background-color: gold;
+      }
+
+      #tutorial .box{
+        background-color: royalblue;
+        color: white;
+      }
+
+      #tutorial {
+        height: auto !important;
+      }
+
+      .node {
+        width: 60%;
+      }
+
+      #resources {
+        height: 95vh !important;
+      }
+
+      #resources .box{
+        background-color: darkorange;
+      }
+
+      #resources ul{
+        margin: 0;
+        padding: 20px;
+      }
+
+      footer {
+        text-align: center;
+        margin-bottom: 10px;
+      }
+
+      a, a:visited, a:hover {
+        color: white;
+      }
+
+      /* move navbar down when google bar shows */
+      html.translated-ltr .navbar-inner, html.translated-ltr .navbar-inner {
+        padding-top: 39px;
+      }
+
+      #google_translate_element {
+        margin-top: 12px;
+        margin-bottom: 15px;
+      }
+
+
+    </style>
+
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+  </head>
+  <body>
+
+    <nav class="navbar navbar-fixed-top navbar-inner navbar-inverse">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Google Translate</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="#">Home</a></li>
+            <li><a href="#api-features">Translation API Features</a></li>
+            <li><a href="#automl-features">AutoML Features</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#tutorial">Translation Tutorial</a></li>
+            <li><a href="#resources">Resources</a></li>
+          </ul>
+          <div id="google_translate_element"></div>
+        </div><!-- /.nav-collapse -->
+      </div><!-- /.container -->
+    </nav><!-- /.navbar -->
+
+    <div class="container" id="content">
+
+      <!-- CONTENT -->
+      <div class="topic" id="intro">
+         <div class="jumbotron">
+          <h1>Google Translate</h1>
+          <p>Dynamically translate between languages between two options: Translation API and AutoML Translation.</p>
+        </div>
+      </div>
+
+      <div class="topic" id="api-features">
+         <div class="row" >
+           <div class="col col-lg-12">
+              <h2>Translation API Features</h2>
+            </div>
+          <div class="col col-sm-12">
+             <div class="box">
+               <h3>What is it?</h3>
+               <p>Provides an pre-programmed interface that translates strings to any supported language by using Neural Machine Translation.</p>
+             </div>
+           </div>
+           <div class="col col-sm-4">
+             <div class="box">
+               <h3>Languages</h3>
+               <p>Supports more than 100 languages that when combined provides thousands of language pairs.</p>
+             </div>
+           </div>
+           <div class="col col-sm-8">
+             <div class="box">
+               <h3>Language detection</h3>
+               <p>The API can automatically detect the source language in case it wasn't provided.</p>
+             </div>
+           </div>
+         </div>
+
+         <div class="row">
+           <div class="col col-sm-4">
+             <div class="box">
+               <h3>Simple Integration</h3>
+               <p>Yous just need to send the HTML to the API to get the translated text back.
+                 No need to extract some text and then put it back to original place.</p>
+             </div>
+           </div>
+           <div class="col col-sm-4">
+             <div class="box">
+               <h3>Scalable</h3>
+               <p>Each user has a daily quota, if is necessary to increase it you can just make a request.</p>
+             </div>
+           </div>
+           <div class="col col-sm-4">
+             <div class="box">
+               <h3>Pay-Per-Use</h3>
+               <p>Client pays only for what is used based on number of characters of text processed.</p>
+             </div>
+           </div>
+         </div>
+      </div>
+
+      <div class="topic" id="automl-features">
+         <div class="row">
+           <div class="col col-lg-12">
+             <h2>AutoML Translation(Beta) Features</h2>
+          </div>
+          <div class="col col-sm-6">
+             <div class="box ">
+               <h3>What is it?</h3>
+               <p>After uploading some language pairs, AutoML enables you to create custom translation models
+                  that return specific queries.</p>
+             </div>
+           </div>
+           <div class="col col-sm-6">
+             <div class="box ">
+               <h3>Languages</h3>
+               <p>Supports approximately 50 languages.</p>
+             </div>
+           </div>
+
+         </div>
+
+         <div class="row">
+           <div class="col col-sm-4">
+             <div class="box">
+               <h3>REST API</h3>
+               <p>It is accessible via Google REST API.</p>
+             </div>
+           </div>
+           <div class="col col-sm-8">
+             <div class="box">
+               <h3>Integration</h3>
+               <p>Is fully integrated with all other Google Cloud services.</p>
+             </div>
+           </div>
+        </div>
+      </div>
+
+      <div class="topic" id="pricing">
+         <div class="row">
+            <div class="col col-lg-12">
+              <h2>Pricing</h2>
+            </div>
+            <div class="col col-sm-6">
+             <div class="box">
+               <h3>Translation API</h3>
+               <p><b>Free tier:</b> $300 free credit to get started with any GCP product for 12 months.</p>
+               <p><b>Text Translation:</b> $10 per million characters (including whitespace characters)</p>
+               <p><b>Language detection:</b> $10 per million characters*<br>
+               <span style="font-size: .8em">*This charge only applies to "detect method" calls. Not when the source language
+                 is not specified.</span></p>
+             </div>
+           </div>
+            <div class="col col-sm-6">
+              <div class="box">
+                <h3>AutoML</h3>
+                <p><b>Training:</b> $76 per hour</p>
+                <p><b>Prediction:</b> 1–500,000 characters is free</p>
+                <p><b>Training:</b> 500,001–5,000,000 characters is $80 per million characters</p>
+              </div>
+            </div>
+         </div>
+      </div>
+      <div class="topic" id="tutorial">
+         <div class="row">
+           <div class="col col-lg-12">
+             <h2>Translation API Tutorial</h2>
+           </div>
+           <div class="col col-sm-12">
+             <div class="box">
+               <h3>1. Client side (Live website)</h3>
+               <p>Code for API request <b>button</b> to automatically translate whole website:</p>
+               <div class="code-sneakpeek">
+                 <img src="code-live.png" alt="code sneak peek">
+               </div>
+             </div>
+           </div>
+           <div class="col col-sm-12">
+             <div class="box">
+               <h3>2. Server side (Client Libraries)</h3>
+               <p>API request using Node.js, Java, Go, etc. Can run locally.</p>
+               <ol>
+                 <li>Create a project</li>
+                 <li>Enable billing</li>
+                 <li>Enable API</li>
+                 <li>Set up authentication (IAM and Service Accounts)</li>
+                 <span><b>On command line:</b></span>
+                 <li>Set up environment variable: <code>export GOOGLE_APPLICATION_CREDENTIALS="PATH_JSON_FILE"</code></li>
+                 <li>Install client library: <code>npm install --save @google-cloud/translate</code></li>
+                 <li><a href="https://cloud.google.com/translate/docs/quickstart-client-libraries" target="_blank">
+                   Add the following code (Node.js) to a JS file and run command: <code>node file_name.js</code></a></li>
+               </ol>
+               <div class="code-sneakpeek node">
+                 <img src="code-node.png" alt="code sneak peek">
+               </div>
+             </div>
+           </div>
+         </div>
+      </div>
+      <div class="topic" id="resources">
+         <div class="row">
+           <div class="col col-sm-12">
+              <h2>Resources</h2>
+            </div>
+            <div class="col col-sm-12">
+             <div class="box">
+               <ul>
+                 <li><a href="https://cloud.google.com/translate/docs/" target="_blank">Google Cloud Translation Documentation</a></li>
+                 <li><a href="https://cloud.google.com/translate/docs/quickstart-client-libraries" target="_blank">Using Client Libraries Tutorial</a></li>
+                 <li><a href="https://www.w3schools.com/howto/howto_google_translate.asp" target="_blank">How to Google Translate - W3Schools</a></li>
+               </ul>
+             </div>
+           </div>
+         </div>
+      </div>
+    </div>
+
+
+    <!-- Google translate API reference -->
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <!-- Google translate function -->
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+          pageLanguage: 'en',
+          includedLanguages: 'en,fr,pt,es,ja,hi,fa,tl,vi',
+          layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+        }, 'google_translate_element');
+      }
+    </script>
+
+    <footer>&copy Copyright 2018. Fernanda Toledo</footer>
+  </body>
+</html>
